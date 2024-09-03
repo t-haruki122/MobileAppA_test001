@@ -33,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation libs.datastore.preferences
+    implementation libs.datastore.preferences.rxjava3
     coreLibraryDesugaring libs.desuger.jdk.libs
     implementation libs.appcompat
     implementation libs.material
