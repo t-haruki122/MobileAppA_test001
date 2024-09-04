@@ -1,6 +1,7 @@
 package jp.ac.meijou.android.s231205122;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,6 +22,7 @@ import jp.ac.meijou.android.s231205122.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private PrefDataStore prefDataStore;
+
     private String fileKey;
 
     @Override
@@ -48,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         // データ読み込み
         prefDataStore.getString(fileKey)
                 .ifPresent(name -> binding.text.setText(name));
+
+        // インテントからデータ読み込み
+        String intentText = getIntent().getStringExtra("text");
+        binding.text.setText(intentText);
 
         // idを指定してJavaからViewを操作する
         // TextView text = findViewById(R.id.text);
@@ -105,8 +111,23 @@ public class MainActivity extends AppCompatActivity {
             prefDataStore.getString(fileKey)
                     .ifPresent(name -> binding.text.setText(name));
         });
+
+        // OK ボタン
+        binding.buttonOK.setOnClickListener(view -> {
+            var intent = new Intent();
+            intent.putExtra("ret", "OKOKOK");
+            setResult(RESULT_OK, intent);
+            finish();
+        });
+
+        // cancel ボタン
+        binding.buttonCancel.setOnClickListener(view -> {
+            setResult(RESULT_CANCELED); //result
+            finish();
+        });
     }
 
+    /*
     @Override
     protected void onStart() {
         super.onStart();
@@ -125,5 +146,6 @@ public class MainActivity extends AppCompatActivity {
         var text = binding.editTextText.getText().toString();
         prefDataStore.setString(fileKey, text);
     }
+     */
 }
 
