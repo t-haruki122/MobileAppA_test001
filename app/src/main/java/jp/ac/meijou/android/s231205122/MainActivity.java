@@ -21,6 +21,7 @@ import jp.ac.meijou.android.s231205122.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private PrefDataStore prefDataStore;
+
     private String fileKey;
 
     @Override
