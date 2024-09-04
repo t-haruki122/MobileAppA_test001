@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
         // cancel ボタン
         binding.buttonCancel.setOnClickListener(view -> {
-            setResult(RESULT_CANCELED);
+            setResult(RESULT_CANCELED); //result
             finish();
         });
     }
