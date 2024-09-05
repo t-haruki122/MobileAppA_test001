@@ -18,6 +18,7 @@ import jp.ac.meijou.android.s231205122.databinding.ActivityMain3Binding;
 
 public class MainActivity3 extends AppCompatActivity {
     private ActivityMain3Binding binding;
+
     private final ActivityResultLauncher<Intent> getActivityResult = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
