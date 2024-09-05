@@ -15,14 +15,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+
 import java.util.prefs.Preferences;
 
 import jp.ac.meijou.android.s231205122.databinding.ActivityMainBinding;
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
+    // 呼び出し
     private ActivityMainBinding binding;
     private PrefDataStore prefDataStore;
 
+    // ユーザ定義変数
     private String fileKey;
 
     @Override
